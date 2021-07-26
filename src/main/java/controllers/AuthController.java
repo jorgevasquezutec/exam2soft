@@ -34,11 +34,11 @@ public class AuthController {
 
             Usuario user=authService.login(usuario);
             if(user!=null){
-                map.put(message,textUsuario+user.getUsuario()+" logueado.");
+                map.put(message,textUsuario+user.getUsername()+" logueado.");
                 return new ResponseEntity<>(map,HttpStatus.OK);
             }
             else{
-                map.put(message,textUsuario+usuario.getUsuario()+" no encontrado.");
+                map.put(message,textUsuario+usuario.getUsername()+" no encontrado.");
                 return new ResponseEntity<>(map,HttpStatus.NOT_FOUND);
             }
         }catch(Exception e){
@@ -54,11 +54,11 @@ public class AuthController {
 
             Usuario user=authService.login(usuario);
             if(user!=null){
-                map.put(message,textUsuario+user.getUsuario()+" cerro sesion.");
+                map.put(message,textUsuario+user.getUsername()+" cerro sesion.");
                 return new ResponseEntity<>(map,HttpStatus.OK);
             }
             else{
-                map.put(message,textUsuario+usuario.getUsuario()+" no encontrado.");
+                map.put(message,textUsuario+usuario.getUsername()+" no encontrado.");
                 return new ResponseEntity<>(map,HttpStatus.NOT_FOUND);
             }
         }catch(Exception e){

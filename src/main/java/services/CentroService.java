@@ -2,6 +2,7 @@ package services;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 
 import org.springframework.stereotype.Service;
@@ -44,9 +45,9 @@ public class CentroService {
         return centroRepository.finbyId(id);
     }
 
-    public HashMap<String, Object> getReporteEdades(){
+    public Map<String, Object> getReporteEdades(){
 
-        HashMap<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>();
         map.put("80 a mas", 0);
         map.put("70 a 79", 0);
         map.put("60 a 69", 0);
@@ -88,6 +89,9 @@ public class CentroService {
                 case "18 a 29":
                         percent=((float)total/(float)GRUPO_18_29)*100;
                     break;
+                default:
+                        percent=0;
+                    break;
             }
             entry.setValue( Float.toString(percent)+"%");
             
@@ -97,21 +101,21 @@ public class CentroService {
         return map;
     }
 
-    public HashMap<String, Object> getReporteConsolidado(){
+    public Map<String, Object> getReporteConsolidado(){
 
-        int numero_vp=0;
-        int numero_vc=0;
+        int numeroVp=0;
+        int numeroVc=0;
         for (Centro c : getCentros() ){
-            numero_vp+=c.getPersonasVacunadasParcialmente();
-            numero_vc+=c.getPersonasVacunadasCompletamente();
+            numeroVp+=c.getPersonasVacunadasParcialmente();
+            numeroVc+=c.getPersonasVacunadasCompletamente();
         }
 
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("Avanze de Vacunación",Float.toString(((float)numero_vc/(float)POPULATION)*100)+"%" );
+        Map<String, Object> map = new HashMap<>();
+        map.put("Avanze de Vacunación",Float.toString(((float)numeroVc/(float)POPULATION)*100)+"%" );
         map.put("Cobertura de Vacunación", "30%");
         map.put("Numero de Centros de Vacunacion",getCentros().size());
-        map.put("Número de personas vacunadas parcialmente", numero_vp);
-        map.put("Número de personas vacunadas completamente", numero_vc);
+        map.put("Número de personas vacunadas parcialmente", numeroVp);
+        map.put("Número de personas vacunadas completamente", numeroVc);
 
         return map;
     }

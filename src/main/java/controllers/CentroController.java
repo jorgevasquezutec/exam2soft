@@ -27,7 +27,7 @@ public class CentroController {
     String error="error";
     String message="message";
     String txtcentro="centro";
-    String txtCentro="Centro";
+    String txtCCentro="Centro";
     
     public CentroController(){
         centroService= new CentroService();
@@ -54,7 +54,7 @@ public class CentroController {
 
             Centro nuevo =centroService.crear(centro);
             map.put(txtcentro,nuevo);
-            map.put(message,txtCentro+" Creado");
+            map.put(message,txtCCentro+" Creado");
             return new ResponseEntity<>(map,HttpStatus.OK);
         }catch(Exception e){
             map.put(error, e.getMessage());
@@ -69,11 +69,11 @@ public class CentroController {
             //valid type
             if(centroService.edit(centro, id)!=null){
                 map.put(txtcentro,centroService.edit(centro, id));
-                map.put(message,txtCentro+" Modificado");
+                map.put(message,txtCCentro+" Modificado");
                 return new ResponseEntity<>(map,HttpStatus.OK);
             }else{
                 map.put(txtcentro,centro);
-                map.put(message,txtCentro+" no encontrado");
+                map.put(message,txtCCentro+" no encontrado");
                 return new ResponseEntity<>(map,HttpStatus.NOT_FOUND);
             }
         }catch(Exception e){
@@ -90,7 +90,7 @@ public class CentroController {
 
             Centro del= centroService.baja(id);
             map.put(txtcentro,del);
-            map.put(message,txtCentro+" Eliminado");
+            map.put(message,txtCCentro+" Eliminado");
             return new ResponseEntity<>(map,HttpStatus.OK);
            
         }catch(Exception e){

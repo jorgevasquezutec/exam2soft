@@ -23,7 +23,7 @@ public class AuthService {
         List<Usuario> users=usuarioRepository.getUsarios();
         
         for (Usuario u : users) {
-            if (u.getUsuario().equals(usuario.getUsuario()) && u.getClave().equals(usuario.getClave())) {
+            if (u.getUsername().equals(usuario.getUsername()) && u.getClave().equals(usuario.getClave())) {
                 return usuario;
             }
         }

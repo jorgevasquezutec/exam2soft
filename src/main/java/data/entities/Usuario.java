@@ -2,21 +2,22 @@ package data.entities;
 
 public class Usuario {
 
-    String usuario;
+    String username;
     String clave;
     
     public Usuario() {
 
     }
     public Usuario(String usuario, String clave) {
-        this.usuario = usuario;
+        this.username = usuario;
         this.clave = clave;
     }
-    public String getUsuario() {
-        return usuario;
+
+    public String getUsername() {
+        return username;
     }
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setUsername(String username) {
+        this.username = username;
     }
     public String getClave() {
         return clave;

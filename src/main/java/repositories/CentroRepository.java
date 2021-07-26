@@ -9,7 +9,7 @@ public class CentroRepository {
 
     List<Centro> centros;
 
-    public List<String> grupos = new ArrayList<String>();
+    private List<String> grupos = new ArrayList<>();
 
 
     public CentroRepository(){
@@ -21,7 +21,7 @@ public class CentroRepository {
         grupos.add("40 a 49");
         grupos.add("30 a 39");
         grupos.add("18 a 29");
-        CreateRadomData();
+        createRadomData();
     }
 
 
@@ -47,7 +47,7 @@ public class CentroRepository {
       return null;
     }
 
-    public void CreateRadomData(){
+    public void createRadomData(){
         int min = 200;      
         int max = 1000;
         int ming=0;
