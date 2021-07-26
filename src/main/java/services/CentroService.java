@@ -112,7 +112,7 @@ public class CentroService {
 
         Map<String, Object> map = new HashMap<>();
         map.put("Avanze de Vacunación",Float.toString(((float)numeroVc/(float)POPULATION)*100)+"%" );
-        map.put("Cobertura de Vacunación", "30%");
+        map.put("Cobertura de Vacunación", "10%");
         map.put("Numero de Centros de Vacunacion",getCentros().size());
         map.put("Número de personas vacunadas parcialmente", numeroVp);
         map.put("Número de personas vacunadas completamente", numeroVc);

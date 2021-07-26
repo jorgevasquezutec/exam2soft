@@ -1,5 +1,6 @@
 package repositories;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,15 +49,16 @@ public class CentroRepository {
     }
 
     public void createRadomData(){
-        int min = 200;      
-        int max = 1000;
+        SecureRandom r = new SecureRandom();
+        int min = 2000;      
+        int max = 10000;
         int ming=0;
         int maxg=grupos.size()-1;
-
+        
         for (int i=1; i<=50;i++){
-            int randomIndex = (int)(Math.random()*(maxg-ming+1)+ming); 
-            int parcial = (int)(Math.random()*(max-min+1)+min); 
-            int complete = (int)(Math.random()*(max-min+1)+min);  
+            int randomIndex = (int)r.nextInt((maxg - ming) + 1) + ming;
+            int parcial = (int)r.nextInt((max - min) + 1) + min;
+            int complete = (int)r.nextInt((max - min) + 1) + min;
             centros.add(new Centro(i,"lima",grupos.get(randomIndex),parcial,complete));
         }
     }
