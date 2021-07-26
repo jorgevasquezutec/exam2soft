@@ -24,6 +24,10 @@ public class CentroController {
 
     
     CentroService centroService;
+    String error="error";
+    String message="message";
+    String txtcentro="centro";
+    String txtCentro="Centro";
     
     public CentroController(){
         centroService= new CentroService();
@@ -37,7 +41,7 @@ public class CentroController {
             map.put("centros", centroService.getCentros());
             return new ResponseEntity<>(map,HttpStatus.OK);
         }catch(Exception e){
-            map.put("error", e.getMessage());
+            map.put(error, e.getMessage());
             return new ResponseEntity<>(map,HttpStatus.BAD_REQUEST);
             }
     }
@@ -49,11 +53,11 @@ public class CentroController {
         try{
 
             Centro nuevo =centroService.crear(centro);
-            map.put("centro",nuevo);
-            map.put("message","Centro Creado");
+            map.put(txtcentro,nuevo);
+            map.put(message,txtCentro+" Creado");
             return new ResponseEntity<>(map,HttpStatus.OK);
         }catch(Exception e){
-            map.put("error", e.getMessage());
+            map.put(error, e.getMessage());
             return new ResponseEntity<>(map,HttpStatus.BAD_REQUEST);
             }
     }
@@ -64,16 +68,16 @@ public class CentroController {
         try{
             //valid type
             if(centroService.edit(centro, id)!=null){
-                map.put("centro",centroService.edit(centro, id));
-                map.put("message","Centro Modificado");
+                map.put(txtcentro,centroService.edit(centro, id));
+                map.put(message,txtCentro+" Modificado");
                 return new ResponseEntity<>(map,HttpStatus.OK);
             }else{
-                map.put("centro",centro);
-                map.put("message","Centro no encontrado");
+                map.put(txtcentro,centro);
+                map.put(message,txtCentro+" no encontrado");
                 return new ResponseEntity<>(map,HttpStatus.NOT_FOUND);
             }
         }catch(Exception e){
-            map.put("error", e.getMessage());
+            map.put(error, e.getMessage());
             return new ResponseEntity<>(map,HttpStatus.BAD_REQUEST);
             }
     
@@ -85,12 +89,12 @@ public class CentroController {
         try{
 
             Centro del= centroService.baja(id);
-            map.put("centro",del);
-            map.put("message","Centro Eliminado");
+            map.put(txtcentro,del);
+            map.put(message,txtCentro+" Eliminado");
             return new ResponseEntity<>(map,HttpStatus.OK);
            
         }catch(Exception e){
-            map.put("error", e.getMessage());
+            map.put(error, e.getMessage());
             return new ResponseEntity<>(map,HttpStatus.BAD_REQUEST);
             }
     }
