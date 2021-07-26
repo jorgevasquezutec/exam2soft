@@ -12,7 +12,6 @@ public class Centro {
 
     }
 
-
     public int getId() {
         return id;
     }

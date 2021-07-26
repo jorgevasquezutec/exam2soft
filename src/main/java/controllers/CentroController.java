@@ -62,7 +62,7 @@ public class CentroController {
     public ResponseEntity<HashMap<String, Object>> bajaCentro(@RequestBody Centro centro,@PathVariable int id){
         HashMap<String, Object> map = new HashMap<>();
         try{
-
+            //valid type
             if(centroService.edit(centro, id)!=null){
                 map.put("centro",centroService.edit(centro, id));
                 map.put("message","Centro Modificado");

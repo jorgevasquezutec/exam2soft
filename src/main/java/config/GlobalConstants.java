@@ -1,5 +1,8 @@
 package config;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GlobalConstants {
     public static final int population = 22935533;
     public static final int grupo_80_mas = 647355;
@@ -11,6 +14,6 @@ public class GlobalConstants {
     public static final int grupo_18_29 = 5031117;
 
     private GlobalConstants(){
-        //DEFAULT CONSTRUCTOR
+       
     }
 }
