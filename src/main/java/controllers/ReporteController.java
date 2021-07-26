@@ -13,7 +13,6 @@ import services.CentroService;
 
 @RestController
 @RequestMapping("/reporte")
-@CrossOrigin
 public class ReporteController {
 
     CentroService centroService;

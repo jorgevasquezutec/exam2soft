@@ -15,7 +15,6 @@ import services.AuthService;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin
 public class AuthController {
 
     AuthService authService;

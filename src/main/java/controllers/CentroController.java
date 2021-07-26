@@ -19,7 +19,6 @@ import services.CentroService;
 
 @RestController
 @RequestMapping("/centro")
-@CrossOrigin
 public class CentroController {
 
     
