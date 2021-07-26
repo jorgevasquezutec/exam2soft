@@ -54,11 +54,11 @@ public class CentroRepository {
         int max = 10000;
         int ming=0;
         int maxg=grupos.size()-1;
-        
+
         for (int i=1; i<=50;i++){
-            int randomIndex = (int)r.nextInt((maxg - ming) + 1) + ming;
-            int parcial = (int)r.nextInt((max - min) + 1) + min;
-            int complete = (int)r.nextInt((max - min) + 1) + min;
+            int randomIndex = r.nextInt((maxg - ming) + 1) + ming;
+            int parcial = r.nextInt((max - min) + 1) + min;
+            int complete = r.nextInt((max - min) + 1) + min;
             centros.add(new Centro(i,"lima",grupos.get(randomIndex),parcial,complete));
         }
     }
