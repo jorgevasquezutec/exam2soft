@@ -1,7 +1,5 @@
 package services;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
@@ -40,8 +38,8 @@ public class CentroService {
     public Centro edit(Centro cen ,int id){
         if(centroRepository.finbyId(id)!=null){
             centroRepository.finbyId(id).setLocalidad(cen.getLocalidad());
-            centroRepository.finbyId(id).setPersonas_vacunadas_parcialmente(cen.getPersonas_vacunadas_parcialmente());
-            centroRepository.finbyId(id).setPersonas_vacunadas_completamente(cen.getPersonas_vacunadas_completamente());
+            centroRepository.finbyId(id).setPersonasVacunadasParcialmente(cen.getPersonasVacunadasParcialmente());
+            centroRepository.finbyId(id).setPersonasVacunadasCompletamente(cen.getPersonasVacunadasCompletamente());
         }
         return centroRepository.finbyId(id);
     }
@@ -59,7 +57,7 @@ public class CentroService {
 
         for (Centro c : getCentros() ){
             int t=(int)map.get(c.getTipo());
-            t+=c.getPersonas_vacunadas_completamente();
+            t+=c.getPersonasVacunadasCompletamente();
             map.put(c.getTipo(), t);
         }
 
@@ -104,8 +102,8 @@ public class CentroService {
         int numero_vp=0;
         int numero_vc=0;
         for (Centro c : getCentros() ){
-            numero_vp+=c.getPersonas_vacunadas_parcialmente();
-            numero_vc+=c.getPersonas_vacunadas_completamente();
+            numero_vp+=c.getPersonasVacunadasParcialmente();
+            numero_vc+=c.getPersonasVacunadasCompletamente();
         }
 
         HashMap<String, Object> map = new HashMap<>();

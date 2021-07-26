@@ -4,8 +4,8 @@ public class Centro {
     int id;
     String localidad;
     String tipo;
-    int personas_vacunadas_parcialmente;
-    int personas_vacunadas_completamente;
+    int personasVacunadasParcialmente;
+    int personasVacunadasCompletamente;
     
 
     public Centro() {
@@ -21,13 +21,13 @@ public class Centro {
         this.id = id;
     }
 
-    public Centro(int id,String localidad, String tipo, int personas_vacunadas_parcialmente,
-            int personas_vacunadas_completamente) {
+    public Centro(int id,String localidad, String tipo, int personasVacunadasParcialmente,
+            int personasVacunadasCompletamente) {
         this.id=id;
         this.localidad = localidad;
         this.tipo = tipo;
-        this.personas_vacunadas_parcialmente = personas_vacunadas_parcialmente;
-        this.personas_vacunadas_completamente = personas_vacunadas_completamente;
+        this.personasVacunadasParcialmente = personasVacunadasParcialmente;
+        this.personasVacunadasCompletamente = personasVacunadasCompletamente;
     }
 
 
@@ -50,25 +50,22 @@ public class Centro {
         this.tipo = tipo;
     }
 
-
-    public int getPersonas_vacunadas_parcialmente() {
-        return personas_vacunadas_parcialmente;
+    public int getPersonasVacunadasParcialmente() {
+        return personasVacunadasParcialmente;
     }
 
-
-    public void setPersonas_vacunadas_parcialmente(int personas_vacunadas_parcialmente) {
-        this.personas_vacunadas_parcialmente = personas_vacunadas_parcialmente;
+    public void setPersonasVacunadasParcialmente(int personasVacunadasParcialmente) {
+        this.personasVacunadasParcialmente = personasVacunadasParcialmente;
     }
 
-
-    public int getPersonas_vacunadas_completamente() {
-        return personas_vacunadas_completamente;
+    public int getPersonasVacunadasCompletamente() {
+        return personasVacunadasCompletamente;
     }
 
-
-    public void setPersonas_vacunadas_completamente(int personas_vacunadas_completamente) {
-        this.personas_vacunadas_completamente = personas_vacunadas_completamente;
+    public void setPersonasVacunadasCompletamente(int personasVacunadasCompletamente) {
+        this.personasVacunadasCompletamente = personasVacunadasCompletamente;
     }
+
 
     
 
