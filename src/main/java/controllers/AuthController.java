@@ -31,16 +31,9 @@ public class AuthController {
     public ResponseEntity<HashMap<String, Object>> login(@RequestBody Usuario usuario){
         HashMap<String, Object> map = new HashMap<>();
         try{
-
-            Usuario user=authService.login(usuario);
-            if(user!=null){
-                map.put(message,textUsuario+user.getUsername()+" logueado.");
-                return new ResponseEntity<>(map,HttpStatus.OK);
-            }
-            else{
-                map.put(message,textUsuario+usuario.getUsername()+" no encontrado.");
-                return new ResponseEntity<>(map,HttpStatus.NOT_FOUND);
-            }
+            authService.logIn(usuario);
+            map.put(message,textUsuario +"logueado.");
+            return new ResponseEntity<>(map,HttpStatus.OK);
         }catch(Exception e){
             map.put(error, e.getMessage());
             return new ResponseEntity<>(map,HttpStatus.BAD_REQUEST);
@@ -52,15 +45,9 @@ public class AuthController {
         HashMap<String, Object> map = new HashMap<>();
         try{
 
-            Usuario user=authService.login(usuario);
-            if(user!=null){
-                map.put(message,textUsuario+user.getUsername()+" cerro sesion.");
-                return new ResponseEntity<>(map,HttpStatus.OK);
-            }
-            else{
-                map.put(message,textUsuario+usuario.getUsername()+" no encontrado.");
-                return new ResponseEntity<>(map,HttpStatus.NOT_FOUND);
-            }
+            authService.logOut(usuario);
+            map.put(message,textUsuario+" cerro sesion.");
+            return new ResponseEntity<>(map,HttpStatus.OK);
         }catch(Exception e){
             map.put(error, e.getMessage());
             return new ResponseEntity<>(map,HttpStatus.BAD_REQUEST);

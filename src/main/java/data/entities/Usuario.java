@@ -4,13 +4,22 @@ public class Usuario {
 
     String username;
     String clave;
+    boolean isLogIn;
     
+
+    public boolean isLogIn() {
+        return isLogIn;
+    }
+    public void setLogIn(boolean isLogIn) {
+        this.isLogIn = isLogIn;
+    }
     public Usuario() {
 
     }
-    public Usuario(String usuario, String clave) {
-        this.username = usuario;
+    public Usuario(String username, String clave) {
+        this.username = username;
         this.clave = clave;
+        this.isLogIn=false;
     }
 
     public String getUsername() {

@@ -18,5 +18,14 @@ public class UsuarioRepository {
     public List<Usuario> getUsarios(){
         return usuarios;
     }
+
+    public Usuario getByName(String username){
+            for(Usuario u : usuarios){
+                if(u.getUsername().equals(username)){
+                    return u;
+                }
+            }
+        return null;
+    }
     
 }

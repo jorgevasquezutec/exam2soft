@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import data.entities.Usuario;
 import repositories.UsuarioRepository;
+import custom_exeptions.UserNotFoundExeption;
+import custom_exeptions.UserIsLogOutExeption;
 
 @Service
 public class AuthService {
@@ -18,16 +20,34 @@ public class AuthService {
     }
 
 
-    public Usuario login(Usuario usuario){
+    public void logIn(Usuario usuario){
 
         List<Usuario> users=usuarioRepository.getUsarios();
-        
+        Usuario tmp=null;
         for (Usuario u : users) {
             if (u.getUsername().equals(usuario.getUsername()) && u.getClave().equals(usuario.getClave())) {
-                return usuario;
+                u.setLogIn(true);
+                tmp=u;
+                break;
             }
         }
-        return null;
+        if(tmp==null){
+            throw new UserNotFoundExeption("No se encontro el usuario "+usuario.getUsername());
+        }
+
+    }
+
+    public void logOut(Usuario usuario){
+        if(usuarioRepository.getByName(usuario.getUsername())==null){
+            throw new UserNotFoundExeption("No se encontro el usuario"+usuario.getUsername()+".");
+        }
+        if(usuarioRepository.getByName(usuario.getUsername()).isLogIn()){
+            usuarioRepository.getByName(usuario.getUsername()).setLogIn(false);
+        }
+        else{
+            throw new UserIsLogOutExeption("El usario "+usuario.getUsername()+" ya se encuentra deslogueado");
+        }
+        
     }
     
 }
