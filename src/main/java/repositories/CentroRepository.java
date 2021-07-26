@@ -2,12 +2,12 @@ package repositories;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import data.entities.Centro;
 
 public class CentroRepository {
 
     List<Centro> centros;
+
 
     public CentroRepository(){
         centros= new ArrayList<>();

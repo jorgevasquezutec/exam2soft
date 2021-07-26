@@ -2,7 +2,6 @@ package services;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import data.entities.Usuario;
@@ -24,7 +23,7 @@ public class AuthService {
         List<Usuario> users=usuarioRepository.getUsarios();
         
         for (Usuario u : users) {
-            if (u.getUsuario()==usuario.getUsuario() && u.getClave()==usuario.getClave()) {
+            if (u.getUsuario().equals(usuario.getUsuario()) && u.getClave().equals(usuario.getClave())) {
                 return usuario;
             }
         }

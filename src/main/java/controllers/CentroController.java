@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -56,6 +57,27 @@ public class CentroController {
             return new ResponseEntity<>(map,HttpStatus.BAD_REQUEST);
             }
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<HashMap<String, Object>> bajaCentro(@RequestBody Centro centro,@PathVariable int id){
+        HashMap<String, Object> map = new HashMap<>();
+        try{
+
+            if(centroService.edit(centro, id)!=null){
+                map.put("centro",centroService.edit(centro, id));
+                map.put("message","Centro Modificado");
+                return new ResponseEntity<>(map,HttpStatus.OK);
+            }else{
+                map.put("centro",centro);
+                map.put("message","Centro no encontrado");
+                return new ResponseEntity<>(map,HttpStatus.NOT_FOUND);
+            }
+        }catch(Exception e){
+            map.put("error", e.getMessage());
+            return new ResponseEntity<>(map,HttpStatus.BAD_REQUEST);
+            }
+    
+        }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<HashMap<String, Object>> bajaCentro(@PathVariable int id){

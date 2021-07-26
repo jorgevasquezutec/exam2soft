@@ -14,6 +14,9 @@
 	<name>vacunacion</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
+		<sonar.projectKey>jorgevasquezutec_exam2soft</sonar.projectKey>
+		<sonar.organization>jorgevasquezutec</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
