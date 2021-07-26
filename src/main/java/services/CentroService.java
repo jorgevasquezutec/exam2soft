@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import data.entities.Centro;
 import repositories.CentroRepository;
-import static config.GlobalConstants.population;
+import static config.GlobalConstants.*;
 
 @Service
 public class CentroService {
@@ -65,8 +65,35 @@ public class CentroService {
 
         for ( Entry<String, Object> entry : map.entrySet()) {
             int total= (int)entry.getValue();
-            float percent = ((float)total/(float)population)*100;
+            float percent=0;
+            
+            switch(entry.getKey())
+            {
+                case "80 a mas":
+                        percent=((float)total/(float)GRUPO_80_MAS)*100;
+                    break;
+                case "70 a 79":
+                        percent=((float)total/(float)GRUPO_70_79)*100;
+                    break;
+                case "60 a 69":
+                        percent=((float)total/(float)GRUPO_60_69)*100;
+                    break;
+                case "50 a 59":
+                        percent=((float)total/(float)GRUPO_50_59)*100;
+                    break;
+                case "40 a 49":
+                        percent=((float)total/(float)GRUPO_40_49)*100;
+                    break;
+                case "30 a 39":
+                        percent=((float)total/(float)GRUPO_30_39)*100;
+                    break;
+                case "18 a 29":
+                        percent=((float)total/(float)GRUPO_18_29)*100;
+                    break;
+            }
             entry.setValue( Float.toString(percent)+"%");
+            
+           
         }
 
         return map;
@@ -82,7 +109,7 @@ public class CentroService {
         }
 
         HashMap<String, Object> map = new HashMap<>();
-        map.put("Avanze de Vacunación",Float.toString(((float)numero_vc/(float)population)*100)+"%" );
+        map.put("Avanze de Vacunación",Float.toString(((float)numero_vc/(float)POPULATION)*100)+"%" );
         map.put("Cobertura de Vacunación", "30%");
         map.put("Numero de Centros de Vacunacion",getCentros().size());
         map.put("Número de personas vacunadas parcialmente", numero_vp);
