@@ -27,7 +27,9 @@ public class CentroRepository {
 
 
     public void add(Centro centro){
-        centros.add(centro);
+        if(getAll().size()<50){
+            centros.add(centro);
+        }
     }
     public void delete(Centro centro){
         centros.remove(centro);
